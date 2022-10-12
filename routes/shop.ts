@@ -3,11 +3,16 @@ import express from "express";
 // import path from "path";
 // import rootDir from "../util/path";
 
+import * as adminData from "./admin";
 const router = express.Router();
 
 router.get("/", (_, res, _3) => {
   // res.sendFile(path.join(rootDir, "..", "views", "shop.html"));
-  res.render("shop");
+  res.render("shop", {
+    pageTitle: "Shop",
+    prod: adminData.products,
+    path: "shop",
+  });
 });
 
 export default router;

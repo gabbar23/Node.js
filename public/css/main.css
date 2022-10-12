@@ -1,17 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 main {
   padding: 1rem;
+  margin: auto;
 }
 
 .main-header {
   width: 100%;
   height: 3.5rem;
-  background-color: #dbc441;
+  background-color: #00695c;
   padding: 0 1.5rem;
 }
 
@@ -35,84 +42,129 @@ main {
 
 .main-header__item a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .main-header__item a:hover,
 .main-header__item a:active,
 .main-header__item a.active {
-  color: #3e00a1;
+  color: #ffeb3b;
 }
 
-.fundo {
-  animation: scales 3s alternate infinite;
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card__header,
+.card__content {
+  padding: 1rem;
+}
+
+.card__header h1,
+.card__content h1,
+.card__content h2,
+.card__content p {
+  margin: 0;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card__actions {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+  margin: 0 0.25rem;
+}
+
+.btn {
+  font: inherit;
+  border: 1px solid #00695c;
+  color: #00695c;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #00695c;
+  color: white;
+}
+
+.fundo{
+  animation: scales 3s alternate  infinite;
   transform-origin: center;
 }
-.pao-baixo {
-  animation: rotatepao 14s cubic-bezier(0.1, 0.49, 0.41, 0.97) infinite;
+.pao-baixo{
+   animation: rotatepao 14s cubic-bezier(.1,.49,.41,.97)  infinite;
   transform-origin: center;
 }
-.pao-cima {
-  animation: rotatepao 7s 1s cubic-bezier(0.1, 0.49, 0.41, 0.97) infinite;
+.pao-cima{
+   animation: rotatepao 7s 1s cubic-bezier(.1,.49,.41,.97)  infinite;
   transform-origin: center;
 }
-.olhos {
-  animation: olhos 2s alternate infinite;
-  transform-origin: center;
+.olhos{animation: olhos   2s  alternate  infinite;
+   transform-origin: center;
 }
 
-.left-sparks {
-  animation: left-sparks 4s alternate infinite;
-  transform-origin: 150px 156px;
+.left-sparks{animation: left-sparks   4s  alternate  infinite;
+      transform-origin: 150px 156px;
 }
 
-.right-sparks {
-  animation: left-sparks 4s alternate infinite;
-  transform-origin: 310px 150px;
+.right-sparks{animation: left-sparks   4s  alternate  infinite;
+      transform-origin: 310px 150px;
 }
 
-.olhos {
-  animation: olhos 2s alternate infinite;
-  transform-origin: center;
+.olhos{animation: olhos   2s  alternate  infinite;
+   transform-origin: center;
 }
-@keyframes scales {
-  from {
-    transform: scale(0.98);
-  }
-  to {
-    transform: scale(1);
-  }
+@keyframes scales{
+  from { transform: scale(0.98)}
+  to{ transform: scale(1)}
 }
 
-@keyframes rotatepao {
-  0% {
-    transform: rotate(0deg);
-  }
-  50%,
-  60% {
-    transform: rotate(-20deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+@keyframes rotatepao{
+  0% { transform:  rotate(0deg)}
+  50% , 60%{ transform:  rotate(-20deg)}
+  100%{  transform:  rotate(0deg) }
+ 
 }
 
-@keyframes olhos {
-  0% {
+@keyframes olhos{
+  0%{
     transform: rotateX(0deg);
   }
-  100% {
+   100%{
     transform: rotateX(30deg);
   }
 }
 
-@keyframes left-sparks {
-  0% {
-    opacity: 0;
+@keyframes left-sparks{
+  0%{
+    opacity: 0; 
   }
+  
 }
 
-.main {
+
+.main{
+  
   min-height: 600px;
   margin: 0px auto;
   width: auto;
@@ -125,18 +177,18 @@ main {
 .path {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  animation: dash 4s alternate infinite;
+  animation: dash 4s   alternate infinite;
 }
 
-@keyframes dash {
-  0%,
-  30% {
-    fill: 4B4B62;
-    stroke-dashoffset: 0;
+@keyframes dash{
+   0%, 30%{
+     fill: 4B4B62;
+    stroke-dashoffset:   0;
   }
-  80%,
-  100% {
-    fill: transparent;
-    stroke-dashoffset: -200;
+   80%,100%{
+     fill: transparent;
+    stroke-dashoffset:  -200;
   }
+   
+  
 }
