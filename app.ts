@@ -8,9 +8,12 @@ import adminRoutes from "./routes/admin";
 import shopRoutes from "./routes/shop";
 
 const app = express();
+app.set("view engine", "pug");
+app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(rootDir, "..", "public")));
+
 
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
