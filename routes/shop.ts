@@ -10,9 +10,9 @@ router.get("/", (_, res, _3) => {
   // res.sendFile(path.join(rootDir, "..", "views", "shop.html"));
   res.render("shop", {
     pageTitle: "Shop",
-    prod: adminData.products,
-    path: "shop",
+    prods: adminData.products,
+    path: "/",
   });
 });
-
+ 
 export default router;
