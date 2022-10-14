@@ -7,4 +7,4 @@ const router = express.Router();
 
 router.get("/", getProducts);
  
-export default router;
+export const shopRoutes= router;

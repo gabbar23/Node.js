@@ -4,20 +4,22 @@ import bodyParser from "body-parser";
 import path from "path";
 import rootDir from "./util/path";
 
-import adminRoutes from "./routes/admin";
-import shopRoutes from "./routes/shop";
+
+import * as adminRoutes from "./routes/addProduct";
+import * as shopRoutes from "./routes/shopIndex";
+import * as routes404 from "./routes/404";
 
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(rootDir, "..", "public")));
 
-app.use("/admin", adminRoutes);
-app.use(shopRoutes);
 
-app.use((_, res) => {
-  res.status(404).render("404",{pageTitle:"Error 404",path:"Error"});
-});
+app.use("/admin", adminRoutes.adminRoutes);
+app.use(shopRoutes.shopRoutes);
+
+app.use(routes404.router404);
 app.listen(3000);
