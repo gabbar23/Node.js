@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 
-import { Product } from "../models/productModel";
+import { Product } from "../../models/productModel";
 
 export const getAddProduct = (_: Request, res: Response) => {
   // res.sendFile(path.join(rootDir, "..", "views", "add-product.html"));
-  res.render("add-product", {
+  res.render("admin/add-product", {
     pageTitle: "Add Product",
     path: "/admin/add-product",
   });
@@ -17,17 +17,16 @@ export const postAddProduct = (req: Request, res: Response) => {
   res.redirect("/");
 };
 
-export const getProducts = (_: Request, res: Response) => {
-  // res.sendFile(path.join(rootDir, "..", "views", "shop.html"));
-  Product.fetchAll((products: []) => {
-    res.render("shop", {
-      prods: products,
-      pageTitle: "Shop",
-      path: "/",
-      hasProducts: products.length > 0,
-      activeShop: true,
-      productCSS: true,
-      
-    });
+export const editProduct = (_: Request, res: Response) => {
+  res.render("admin/edit-product", {
+    pageTitle: "Edit Product",
+    path: "/admin/edit-product",
+  });
+};
+
+export const productListAdmin = (_: Request, res: Response) => {
+  res.render("admin/product-list-admin", {
+    pageTitle: "Admin Product List",
+    path: "/admin/product-list-admin",
   });
 };
