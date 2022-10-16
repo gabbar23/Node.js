@@ -1,17 +1,18 @@
 import express from "express";
-import { getProducts } from "../../controllers/shopController/productController";
+import * as shopController from "../../controllers/shopController/productController";
 
 const router = express.Router();
 
-router.get("/product-list", getProducts);
+router.get("/product-list", shopController.getProducts);
 
-// router.get("/cart", getProducts);
+router.post("/cart", shopController.getCart);
 
-// router.get("/checkout", getProducts);
+router.get("/checkout", shopController.getCheckout);
 
-// router.get("/product-detail", getProducts);
+router.get("/product-detail", shopController.getProductDetails);
 
-// router.get("/", getProducts);
+router.get("/orders",shopController.getorders);
 
+router.get("/", shopController.getIndex);
 
 export const shopRoutes = router;

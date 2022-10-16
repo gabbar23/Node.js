@@ -11,10 +11,14 @@ export const getAddProduct = (_: Request, res: Response) => {
 };
 
 export const postAddProduct = (req: Request, res: Response) => {
-  const product = new Product(req.body.title);
+  const title = req.body.title;
+  const imageUrl = req.body.imageUrl;
+  const price = req.body.price;
+  const description = req.body.description;
+  const product = new Product(title, imageUrl, description, price);
   product.save();
   // products.push({ title: req.body.title });
-  res.redirect("/");
+  res.redirect("/product-list");
 };
 
 export const editProduct = (_: Request, res: Response) => {
@@ -25,8 +29,11 @@ export const editProduct = (_: Request, res: Response) => {
 };
 
 export const productListAdmin = (_: Request, res: Response) => {
-  res.render("admin/product-list-admin", {
-    pageTitle: "Admin Product List",
-    path: "/admin/product-list-admin",
+  Product.fetchAll((products: []) => {
+    res.render("admin/product-list-admin", {
+      prods: products,
+      pageTitle: "Admin Product List",
+      path: "/admin/product-list-admin",
+    });
   });
 };
