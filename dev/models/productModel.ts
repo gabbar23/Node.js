@@ -1,11 +1,24 @@
 import fs from "fs";
 import path from "path";
+
 import rootPath from "../util/path";
+
 export class Product {
   title: string;
+  imageUrl: string;
+  description: string;
+  price: number;
 
-  constructor(title: string) {
+  constructor(
+    title: string,
+    imageUrl: string,
+    description: string,
+    price: number
+  ) {
     this.title = title;
+    this.imageUrl = imageUrl;
+    this.description = description;
+    this.price = price;
   }
 
   save() {
